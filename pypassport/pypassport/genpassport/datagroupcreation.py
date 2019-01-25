@@ -88,7 +88,7 @@ class DataGroup2Creation(Creation):
         img = f.read()
         f.close()
         try:
-            import Image
+            from PIL import Image
             width,height = Image.open(imgPath).size
         except:
             width = 0
@@ -199,4 +199,3 @@ class SODCreation(Creation):
                 hashes[converter.toOrder(dg.tag)] = res.digest()
 
         return hashes
-

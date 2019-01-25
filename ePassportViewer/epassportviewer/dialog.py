@@ -28,7 +28,7 @@ import tkMessageBox
 import thread
 import threading
 import tkFont
-import Image, ImageTk
+from PIL import Image, ImageTk
 import Queue
 import time
 import re
@@ -930,10 +930,10 @@ class Tooltip(Toplevel):
 		self.parent.bind('<Enter>', self.delay)
 		self.parent.bind('<Button-1>', self.clear)
 		self.parent.bind('<Leave>', self.clear)
-		
+
 	def delay(self,event):
 		self.action = self.parent.after(self.time, self.show)
-		
+
 	def show(self):
 		self.update_idletasks()
 		posX = self.parent.winfo_rootx()+self.parent.winfo_width()-10
@@ -944,7 +944,7 @@ class Tooltip(Toplevel):
 			posY = posY-self.winfo_height()-self.tipheight
 		self.geometry('+%d+%d'%(posX,posY))
 		self.deiconify()
-		
+
 	def clear(self, event):
 		self.withdraw()
 		self.parent.after_cancel(self.action)
@@ -1003,7 +1003,7 @@ class AdditionalDialog:
         self.window.connect("delete_event", self.delete_event)
 
         self.doc = dgs
-        
+
         # create a TreeStore with one string column to use as the model
         self.treestore = gtk.TreeStore(str)
 
@@ -1388,8 +1388,3 @@ class FingerPrintDialog(Toplevel):
             return sep + (str(data)[:length].encode("utf-8") + '..') if len(str(data).encode("utf-8")) > length else sep + str(data).encode("utf-8") + "\n"
         except Exception:
             return sep + "UNPRINTABLE BINARY VALUE\n"
-
-
-
-
-

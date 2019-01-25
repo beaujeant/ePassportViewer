@@ -20,14 +20,18 @@ import types
 import os
 import PIL
 
-from reportlab.pdfgen.canvas import Canvas
-from reportlab.lib.units import cm, mm
-from reportlab.lib.utils import ImageReader
+try:
+    from reportlab.pdfgen.canvas import Canvas
+    from reportlab.lib.units import cm, mm
+    from reportlab.lib.utils import ImageReader
 
-from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image
-from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.lib.units import inch
+    from reportlab.lib.pagesizes import letter
+    from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image
+    from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+    from reportlab.lib.units import inch
+    pdf_import = True
+except Exception:
+    pdf_import = False
 
 from string import replace
 from xml.dom.minidom import Document, parse
@@ -153,7 +157,8 @@ def toPDF(data, filename):
         @return: None
     """
 
-
+    if not pdf_import:
+        return
 
     doc = SimpleDocTemplate(filename, pagesize=letter,
                             rightMargin=72, leftMargin=72,

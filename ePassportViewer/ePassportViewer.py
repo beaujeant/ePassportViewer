@@ -17,16 +17,14 @@
 # You should have received a copy of the GNU General Public
 # License along with epassportviewer.
 # If not, see <http://www.gnu.org/licenses/>.
+
 Error = False
-import traceback,sys
 import os
 import tkMessageBox
 try:
     from Tkinter import *
-    import Image, ImageTk
     from epassportviewer.const import *
     from epassportviewer.mvc import Controller
-    from epassportviewer.util.image import ImageFactory
 except Exception, msg:
     print msg
     tkMessageBox.showerror("Error", msg)
@@ -44,13 +42,6 @@ class dummyStream(object):
     def close(self):
         self.f.close()
 
-# sys.stdout = dummyStream()
-# sys.stderr = dummyStream()
-# sys.stdin = dummyStream()
-# sys.__stdout__ = dummyStream()
-# sys.__stderr__ = dummyStream()
-# sys.__stdin__ = dummyStream()
-
 def run():
 
     root = Tk()
@@ -62,9 +53,7 @@ def run():
         pass
     # some files will be written temporarily in the current path:
     os.chdir(TMPDIR)
-    # remove console on osx from http://mail.python.org/pipermail/python-list/2006-October/578318.html
-    # if (sys.platform != "win32") and hasattr(sys, 'frozen'):
-    #     root.tk.call('console', 'hide')
+
     app = Controller(parent=root)
     root.title(TITLE)
     root.mainloop()

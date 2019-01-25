@@ -18,7 +18,8 @@
 
 from Tkinter import *
 import tkMessageBox
-import Image, ImageTk, tkFont
+from PIL import Image, ImageTk
+import tkFont
 
 from string import replace
 
@@ -353,6 +354,3 @@ class Overview(Frame):
         for field in self.fields:
             self.fields[field].set("N/A")
         self.fields["mrz"].set("")
-
-
-

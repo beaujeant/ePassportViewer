@@ -19,7 +19,7 @@
 from time import time
 from Tkinter import *
 import tkMessageBox
-import Image, ImageTk
+from PIL import Image, ImageTk
 import os
 import re
 import pickle
@@ -954,7 +954,7 @@ message regarding the country.\n"
                 bf = bruteForce.BruteForce(Iso7816(r), activateReader)
             else:
                 bf = bruteForce.BruteForce(None, activateReader)
-        
+
             if self.verboseBruteVar.get():
                 bf.register(self.writeToLogBF)
 
@@ -1623,8 +1623,3 @@ class ScrollFrame(Frame):
         self.text.delete(1.0, END)
         if dis:
             self.text.config(state=DISABLED)
-
-
-
-
-

@@ -1,5 +1,3 @@
-# Copyright 2012 Antonin Beaujeant
-#
 # This file is part of pypassport.
 #
 # pypassport is free software: you can redistribute it and/or modify
@@ -25,13 +23,13 @@ def read(fname):
 
 setup(
     name='pypassport',
-    version='2.0',
+    version='2.1',
     description='Python Biometric Passport API',
     long_description=read('README'),
     author='Jean-Francois Houzard, Olivier Roger and Antonin Beaujeant',
-    author_email='jhouzard@gmail.com, folkenda@gmail.com and antonin.beaujeant@uclouvain.be',
-    url='http://code.google.com/p/pypassport/downloads/list',
-    keywords='mrtd passport pypassport',
+    author_email='jhouzard@gmail.com and folkenda@gmail.com',
+    url='https://github.com/beaujeant/ePassportViewer',
+    keywords='mrtd passport pypassport epassport viewer',
     license='LGPL',
     classifiers=[
       "License :: OSI Approved :: GNU Lesser General Public License (LGPL)",
@@ -47,13 +45,11 @@ setup(
       'pypassport': ['README', 'LICENSE']
     },
 
-    # pgmagick => check lin/win asap
     install_requires=[
-        'setuptools',
         'pyCrypto',
         'pyasn1',
-        #'pyscard', # Unless mac, check lin/win asap
-        'PIL'
+        'pyscard',
+        'pillow'
     ],
 
     zip_safe = False

@@ -21,7 +21,7 @@ import os
 from Tkinter import *
 import tkFont
 import tkMessageBox
-import Image, ImageTk
+from PIL import Image, ImageTk
 from tkFileDialog import askdirectory, askopenfilename, asksaveasfilename
 
 from Crypto.Cipher import DES3
@@ -689,4 +689,3 @@ class CustomFrame(Frame):
         cardservice.connection.connect()
         atr = toHexString(cardservice.connection.getATR())
         self.writeToLog("ATR: {0}".format(atr))
-
