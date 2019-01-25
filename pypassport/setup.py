@@ -14,12 +14,7 @@
 # License along with pyPassport.
 # If not, see <http://www.gnu.org/licenses/>.
 
-import os
 from setuptools import setup, find_packages
-
-def read(fname):
-    return open(os.path.join(os.path.dirname(__file__),'pypassport', fname)).read()
-
 
 setup(
     name='pypassport',

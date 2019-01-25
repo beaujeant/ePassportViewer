@@ -35,7 +35,7 @@ sudo apt install python-pyscard
 You now can install pypassport:
 
 ```
-cd ePassportViewer/pypassport/"
+cd ePassportViewer/pypassport
 sudo python setup.py install
 ```
 
@@ -52,11 +52,11 @@ sudo apt install openjdk-6-jre-headless
 
 ### Install driver
 
-First you need to unplug the reader, then install the following resources:
+First you need to unplug the reader, then install the following resource:
 
 ```
-sudo apt-get install libusb-dev
-sudo apt-get install pcscd
+sudo apt install libusb-dev
+sudo apt install pcscd
 ```
 
 #### ACR
@@ -79,9 +79,10 @@ Once installed, you need to [unload the pn533](https://ludovicrousseau.blogspot.
 sudo rm -r /lib/modules/*/kernel/drivers/nfc/pn533
 ```
 
-Now you should be able to use your reader. You can test if the driver has been properly installed with the following command:
+Now you should be able to use your reader. You can connect your reader and test if the driver has been properly installed with the following command:
 
 ```
+sudo service pcscd stop
 sudo pcscd -f -d
 # "Ctrl + C" to quit
 ```
@@ -102,12 +103,12 @@ ePassportViewer needs the following dependencies:
 ```
 sudo apt install python-tk
 sudo apt install python-imaging-tk
-sudo apt install libjpeg62
 ```
 
-Once installed you can run ePassportViewer:
+Once installed you can run `pcscd` service and start ePassportViewer:
 
 ```
+sudo service pcscd start
 cd ePassportViewer
 python ePassportViewer.py
 ```
@@ -117,6 +118,7 @@ python ePassportViewer.py
 Some features of ePassportViewer will only be available with the following additional dependency:
 
 ```
+sudo apt install libjpeg62
 sudo apt install python-reportlab
 ```
 
@@ -124,6 +126,8 @@ sudo apt install python-reportlab
 ### Troubleshooting
 
 #### Failure to list reader
+
+If you have the following error message:
 
 ```
 'Failure to list readers: Service not Available.'.
@@ -133,5 +137,5 @@ Please check your passport is on the reader
 Close ePassportViewer and run the following command:
 
 ```
-/etc/init.d/pcscd restart
+sudo service pcscd restart
 ```
