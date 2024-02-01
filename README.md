@@ -1,7 +1,7 @@
 ePassportViewer
 ===============
 
-I decided to split the repository in two part. I've started porting pypassport to Python 3. You can find the new repository here: [https://github.com/beaujeant/pypassport]. Once done and stable, I will then rebuild the ePassportViewer. Currently, I think I'll use a web interface instead of *TK.
+I decided to split the repository in two part. I've started porting pypassport to Python 3. You can find the new repository here: https://github.com/beaujeant/pypassport. Once done and stable, I will then rebuild the ePassportViewer. Currently, I think I'll use a web interface instead of *TK.
 
 Description
 -----------
