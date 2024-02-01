@@ -1,10 +1,15 @@
 ePassportViewer
 ===============
 
+I decided to split the repository in two part. I've started porting pypassport to Python 3. You can find the new repository here: [[https://github.com/beaujeant/pypassport]]. Once done and stable, I will then rebuild the ePassportViewer. Currently, I think I'll use a web interface instead of *TK.
+
+Description
+-----------
+
 This project has been developed by the Information Security Group (ISG) from the University of Louvain (ULC). It contains two parts, one is the python _pyPassport_ library that allows everyone to read his passport, and the GUI _ePassport Viewer_ that provides a friendly interface to the API. The tool allows everyone to check whether his passport resists to the attacks known in the literature.
 
 For more information, you can read the paper from the ISG and al. published the in ACM journal: [A Survey of Security and Privacy Issues in ePassports](https://www.researchgate.net/publication/286047538_A_Survey_of_Security_and_Privacy_Issues_in_ePassports).
-
+README
 
 Installation guide
 ------------------
